@@ -10,7 +10,7 @@ An unofficial Windows desktop widget that shows how much of your five-hour and w
 - **Minimal mode.** Choose a circle or rounded square in four sizes. The bubble shows remaining percentages by default. Double-click the bubble to switch to countdowns. Reset-time background bars are on by default and show each window’s progress toward reset.
 - **Themes and placement.** Ocean is the default theme, with Midnight and Light also available. The widget remembers its position across launches. Snapping is on by default and lets the widget attach to screen edges or follow another window.
 - **Refresh and tray controls.** Refresh intervals adapt to usage changes. Right-click the widget to refresh immediately or pause polling. Double-click the tray icon to show or hide the widget. The tray menu includes **Auto-msg**, **About**, and **Exit**. Closing hides the widget to the tray by default.
-- **Optional reset messages.** Use **Auto Reset Messages** to arm a one-time or repeating prompt for an existing, new, or dedicated Codex chat. The widget can send after the five-hour reset or at a manually chosen time. Keep it running for armed messages, which consume normal Codex usage.
+- **Auto Reset Messages (experimental).** Arm a one-time or repeating prompt for an existing, new, or dedicated Codex chat. The widget can send after the five-hour reset or at a manually chosen time. Keep it running for armed messages, which consume normal Codex usage. Delivery immediately after a live five-hour reset is still unverified.
 
 ## Screenshots
 
@@ -34,7 +34,7 @@ The screenshots use sample usage and chat data.
 
 ## Run the Windows release
 
-Download `CodexUsageWidget-windows.zip` from the [v1.1.0 release](https://github.com/cloudd901/CodexUsageWidget/releases/tag/v1.1.0).
+Download `CodexUsageWidget-windows.zip` from the [v1.1.0 beta release](https://github.com/cloudd901/CodexUsageWidget/releases/tag/v1.1.0).
 
 1. Verify the ZIP’s SHA-256 against the checksum in the release notes. The executable is unsigned.
 2. Before extracting, right-click the ZIP in File Explorer and choose **Properties**. On the **General** tab, if **Unblock** appears, check it and click **Apply**.
