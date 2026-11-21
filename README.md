@@ -14,7 +14,7 @@ An unofficial Windows desktop widget that shows how much of your five-hour and w
 
 ## Screenshots
 
-The usage values shown are sample data.
+The screenshots use sample usage and chat data.
 
 **Minimal mode** in the Midnight, Ocean, and Light themes, with both shapes shown at the Compact size.
 
@@ -24,17 +24,21 @@ The usage values shown are sample data.
 
 ![Widget menu with Minimal mode, Auto Reset Messages, refresh controls, and Settings](assets/screenshots/widget-menu.png)
 
+**Auto Reset Messages** showing a repeating message armed for an example chat after the five-hour reset.
+
+![Auto Reset Messages window with a selected example chat, a message, and the scheduled send time](assets/screenshots/auto-reset-messages.png)
+
 ## Build and run
 
 Requires Windows 10 or 11, .NET Framework 4.8, and the Microsoft Store Codex app or an OpenAI-signed `codex.exe` on an absolute local `PATH` entry. Sign in to Codex with a ChatGPT account that reports both usage windows. The PowerShell build uses the Windows .NET Framework compiler and needs no .NET SDK or NuGet packages.
 
-Run from PowerShell in the repository folder.
+Build from PowerShell in the repository folder.
 
 ```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\build-and-run.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\build-widget.ps1
 ```
 
-For compilation only, run `build-widget.ps1`. After building, you can start the widget with `Launch CodexUsageWidget.cmd` or `bin\CodexUsageWidget.exe`. If usage stays offline, check your Codex sign-in and choose **Refresh now** from the widget menu.
+After building, start the widget with `Launch CodexUsageWidget.cmd` or `bin\CodexUsageWidget.exe`. If usage stays offline, check your Codex sign-in and choose **Refresh now** from the widget menu.
 
 ## Local data
 

@@ -7,8 +7,6 @@
 !/app.manifest
 !/build-common.ps1
 !/build-widget.ps1
-!/build-and-run.ps1
-!/restart-widget.ps1
 !/Launch CodexUsageWidget.cmd
 
 !/src/
@@ -23,3 +21,4 @@
 !/assets/screenshots/usage-widget.png
 !/assets/screenshots/minimal-mode.png
 !/assets/screenshots/widget-menu.png
+!/assets/screenshots/auto-reset-messages.png
