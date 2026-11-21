@@ -32,6 +32,14 @@ The screenshots use sample usage and chat data.
 
 ![About window with the ring icon and an overview of usage, minimal mode, tray controls, and reset messages](assets/screenshots/about-window.png)
 
+## Run the Windows release
+
+Download `CodexUsageWidget-windows.zip` from the [v1.1.0 release](https://github.com/cloudd901/CodexUsageWidget/releases/tag/v1.1.0).
+
+1. Verify the ZIP’s SHA-256 against the checksum in the release notes. The executable is unsigned.
+2. Before extracting, right-click the ZIP in File Explorer and choose **Properties**. On the **General** tab, if **Unblock** appears, check it and click **Apply**.
+3. Extract the ZIP and run `CodexUsageWidget.exe`. If you already extracted the ZIP and Windows blocks the app, use **Properties → Unblock → Apply** on the extracted executable.
+
 ## Build and run
 
 Requires Windows 10 or 11, .NET Framework 4.8, and the Microsoft Store Codex app or an OpenAI-signed `codex.exe` on an absolute local `PATH` entry. Sign in to Codex with a ChatGPT account that reports both usage windows. The PowerShell build uses the Windows .NET Framework compiler and needs no .NET SDK or NuGet packages.
