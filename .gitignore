@@ -1,0 +1,25 @@
+# Allowlist the files intended for the shared source repository.
+/*
+!/.gitignore
+!/README.md
+!/LICENSE
+!/CodexUsageWidget.csproj
+!/app.manifest
+!/build-common.ps1
+!/build-widget.ps1
+!/build-and-run.ps1
+!/restart-widget.ps1
+!/Launch CodexUsageWidget.cmd
+
+!/src/
+/src/*
+!/src/*.cs
+
+!/assets/
+/assets/*
+!/assets/ring.ico
+!/assets/screenshots/
+/assets/screenshots/*
+!/assets/screenshots/usage-widget.png
+!/assets/screenshots/minimal-mode.png
+!/assets/screenshots/widget-menu.png

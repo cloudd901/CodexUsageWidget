@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ <PropertyGroup>
+  <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+  <OutputType>WinExe</OutputType><AssemblyName>CodexUsageWidget</AssemblyName>
+  <RootNamespace>CodexUsageBubble</RootNamespace><TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+  <OutputPath>bin\</OutputPath><Optimize>true</Optimize><CodePage>65001</CodePage>
+  <ApplicationManifest>app.manifest</ApplicationManifest>
+  <ApplicationIcon>assets\ring.ico</ApplicationIcon>
+ </PropertyGroup>
+ <ItemGroup>
+
+  <EmbeddedResource Include="assets\ring.ico"><LogicalName>CodexUsageBubble.ring.ico</LogicalName></EmbeddedResource>
+  <Reference Include="System"/><Reference Include="System.Core"/><Reference Include="System.Web.Extensions"/><Reference Include="System.Windows.Forms"/><Reference Include="System.Drawing"/>
+  <Reference Include="WindowsBase"/><Reference Include="PresentationCore"/><Reference Include="PresentationFramework"/><Reference Include="System.Xaml"/>
+  <Compile Include="src\DesktopAppClient.cs"/><Compile Include="src\Diagnostics.cs"/><Compile Include="src\Usage.cs"/><Compile Include="src\Client.cs"/><Compile Include="src\AppServer.cs"/><Compile Include="src\ChatActions.cs"/><Compile Include="src\ResetActions.cs"/><Compile Include="src\ResetActionWindow.cs"/><Compile Include="src\AdaptivePolling.cs"/><Compile Include="src\MinimalBubble.cs"/><Compile Include="src\App.cs"/><Compile Include="src\NativeSnapping.cs"/><Compile Include="src\BubbleWindow.cs"/><Compile Include="src\BubbleWindow.Layout.cs"/><Compile Include="src\BubbleWindow.Preferences.cs"/><Compile Include="src\BubbleWindow.Tray.cs"/><Compile Include="src\WidgetPreferences.cs"/>
+ </ItemGroup>
+ <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+</Project>
