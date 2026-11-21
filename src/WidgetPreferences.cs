@@ -6,26 +6,30 @@ using System.Globalization;
 
 namespace CodexUsageBubble {
  internal sealed class WidgetPreferences {
+  internal const string DefaultTheme="Ocean";
+  internal const bool DefaultResetTimeBackground=true,DefaultSnapping=true;
   public int Version=1;
   public double? Left,Top;
   public double NormalWidth=272;
-  public bool MinimalMode,Countdown,ResetTimeBackground,Snapping;
+  public bool MinimalMode,Countdown;
+  public bool ResetTimeBackground=DefaultResetTimeBackground,Snapping=DefaultSnapping;
   public bool ShowLabelPrefixes=true,CloseToTray=true;
-  public string Theme="Midnight",MinimalShape="Circle";
+  public string Theme=DefaultTheme,MinimalShape="Circle";
   public int MinimalSize=60;
 
   internal static bool Finite(double value){return !double.IsNaN(value)&&!double.IsInfinity(value);}
   internal void Normalize() {
    if(!Left.HasValue||!Top.HasValue||!Finite(Left.Value)||!Finite(Top.Value))Left=Top=null;
    NormalWidth=Finite(NormalWidth)?Math.Max(232,Math.Min(380,NormalWidth)):272;
-   if(Theme!="Midnight"&&Theme!="Ocean"&&Theme!="Light")Theme="Midnight";
+   if(Theme!="Midnight"&&Theme!="Ocean"&&Theme!="Light")Theme=DefaultTheme;
    if(MinimalShape!="Circle"&&MinimalShape!="Square")MinimalShape="Circle";
    if(MinimalSize==43)MinimalSize=40;else if(MinimalSize==62)MinimalSize=60;else if(MinimalSize==78)MinimalSize=80;else if(MinimalSize==96)MinimalSize=100;
    if(MinimalSize!=40&&MinimalSize!=60&&MinimalSize!=80&&MinimalSize!=100)MinimalSize=60;
   }
   internal static WidgetPreferences FromLegacy(double[] values) {
    if(values==null)throw new ArgumentException("Invalid legacy preferences.");
-   var result=new WidgetPreferences();
+   // Arrays predate the current defaults. Preserve their historical behavior for omitted slots.
+   var result=new WidgetPreferences {Theme="Midnight"};
    if(values.Length>=2){result.Left=values[0];result.Top=values[1];}
    if(values.Length>=3)result.NormalWidth=values[2];
    result.MinimalMode=values.Length>=4&&values[3]==1;
@@ -52,9 +56,9 @@ namespace CodexUsageBubble {
    var result=new WidgetPreferences {
     Left=Number(values,"Left"),Top=Number(values,"Top"),NormalWidth=Number(values,"NormalWidth")??272,
     MinimalMode=Named(values,"MinimalMode",false),Countdown=Named(values,"Countdown",false),
-    ResetTimeBackground=Named(values,"ResetTimeBackground",false),Snapping=Named(values,"Snapping",false),
+    ResetTimeBackground=Named(values,"ResetTimeBackground",DefaultResetTimeBackground),Snapping=Named(values,"Snapping",DefaultSnapping),
     ShowLabelPrefixes=Named(values,"ShowLabelPrefixes",true),CloseToTray=Named(values,"CloseToTray",true),
-    Theme=Named(values,"Theme","Midnight"),MinimalShape=Named(values,"MinimalShape","Circle"),MinimalSize=Named(values,"MinimalSize",60)
+    Theme=Named(values,"Theme",DefaultTheme),MinimalShape=Named(values,"MinimalShape","Circle"),MinimalSize=Named(values,"MinimalSize",60)
    };
    result.Normalize();return result;
   }

@@ -7,9 +7,9 @@ An unofficial Windows desktop widget that shows how much of your five-hour and w
 ## Features
 
 - **Floating display.** Drag or resize the always-on-top widget. Hover either usage bar for the exact reset time.
-- **Minimal mode.** Choose a circle or rounded square in four sizes. The bubble shows remaining percentages by default. Double-click the bubble to switch to countdowns. Optional background bars show how far each window has progressed toward its reset.
-- **Themes and placement.** Choose Midnight, Ocean, or Light. The widget remembers its position across launches and can snap to screen edges or follow another window.
-- **Refresh and tray controls.** Refresh intervals adapt to usage changes. Right-click to refresh immediately or pause polling. Closing hides the widget to the system tray by default. Choose **Exit** from the tray to stop it.
+- **Minimal mode.** Choose a circle or rounded square in four sizes. The bubble shows remaining percentages by default. Double-click the bubble to switch to countdowns. Reset-time background bars are on by default and show each window’s progress toward reset.
+- **Themes and placement.** Ocean is the default theme, with Midnight and Light also available. The widget remembers its position across launches. Snapping is on by default and lets the widget attach to screen edges or follow another window.
+- **Refresh and tray controls.** Refresh intervals adapt to usage changes. Right-click the widget to refresh immediately or pause polling. Double-click the tray icon to show or hide the widget. The tray menu includes **Auto-msg**, **About**, and **Exit**. Closing hides the widget to the tray by default.
 - **Optional reset messages.** Use **Auto Reset Messages** to arm a one-time or repeating prompt for an existing, new, or dedicated Codex chat. The widget can send after the five-hour reset or at a manually chosen time. Keep it running for armed messages, which consume normal Codex usage.
 
 ## Screenshots
@@ -27,6 +27,10 @@ The screenshots use sample usage and chat data.
 **Auto Reset Messages** showing a repeating message armed for an example chat after the five-hour reset.
 
 ![Auto Reset Messages window with a selected example chat, a message, and the scheduled send time](assets/screenshots/auto-reset-messages.png)
+
+**About** in the Ocean theme, with a feature overview and a link to the README.
+
+![About window with the ring icon and an overview of usage, minimal mode, tray controls, and reset messages](assets/screenshots/about-window.png)
 
 ## Build and run
 

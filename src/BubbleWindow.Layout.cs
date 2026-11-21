@@ -74,10 +74,7 @@ namespace CodexUsageBubble {
 			settings.Items.Add(closeToTray);
    ContextMenu.Items.Add(settings);ContextMenu.Items.Add(new Separator {Style=(Style)ContextMenu.Resources[typeof(Separator)]});
    var afterReset=new MenuItem {Header="Auto Reset Messages",Icon=resetActionDot};
-   afterReset.Click+=delegate {
-    if(actionWindow==null){actionWindow=new ResetActionWindow(resetActions,Theme,()=>snapshot,()=>Paused) {Owner=this,Icon=Icon};actionWindow.Closed+=delegate{actionWindow=null;};actionWindow.Show();}
-    else actionWindow.Activate();
-   };
+   afterReset.Click+=delegate{ShowResetActionWindow();};
    ContextMenu.Items.Add(afterReset);
    ContextMenu.Items.Add(pause);ContextMenu.Items.Add(refresh);ContextMenu.Items.Add(new Separator {Style=(Style)ContextMenu.Resources[typeof(Separator)]});
    var close=new MenuItem {Header="Close"};close.Click+=delegate{Close();};ContextMenu.Items.Add(close);
@@ -124,6 +121,16 @@ namespace CodexUsageBubble {
    LocationChanged+=delegate{if(initialized&&!loadingPosition&&!closed){placementSaveTimer.Stop();placementSaveTimer.Start();}};
    Closed+=delegate {placementSaveTimer.Stop();DisposeTrayIcon();nativeSnapping.Dispose();minimalBubble.CancelHover();closed=true;clock.Stop();pollTimer.Stop();actionTimer.Stop();resetActions.Dispose();polling.Pause();refreshQueued=false;if(pending!=null)pending.Cancel();};
    ApplyTheme();UpdateState();
+  }
+  void ShowResetActionWindow() {
+   if(!IsVisible)RestoreFromTray();
+   if(actionWindow==null) {
+    actionWindow=new ResetActionWindow(resetActions,Theme,()=>snapshot,()=>Paused) {Owner=this,Icon=Icon};
+    actionWindow.Closed+=delegate{actionWindow=null;};
+   }
+   if(!actionWindow.IsVisible)actionWindow.Show();
+   if(actionWindow.WindowState==WindowState.Minimized)actionWindow.WindowState=WindowState.Normal;
+   actionWindow.Activate();
   }
   void SetTheme(int index) {
    if(index<0||index>=WidgetTheme.All.Length)return;
